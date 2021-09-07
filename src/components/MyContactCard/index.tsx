@@ -20,13 +20,13 @@ export function MyContactCard({ name, email, phone }: ContactCardProps) {
     <ContactCard>
       <ContactCardData>
         <Text>
-          Gilmar
+          {name}
         </Text>
         <Text>
-          ferrinigilmar@gmail.com
+          {email}
         </Text>
         <Text>
-          998375424
+          {phone}
         </Text>
       </ContactCardData>
 
