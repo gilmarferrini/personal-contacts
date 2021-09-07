@@ -1,14 +1,11 @@
 import React from 'react'
 import { Text } from 'react-native'
-import deleteImage from '../../../assets/delete.png'
 
 import { Button } from '../index'
 
 import {
   ContactCard,
   ContactCardData,
-  TouchableOpacityButton,
-  DeleteImage
 } from './styles'
 
 interface ContactCardProps {
@@ -18,7 +15,6 @@ interface ContactCardProps {
 }
 
 export function MyContactCard({ name, email, phone }: ContactCardProps) {
-  console.log(typeof deleteImage)
  
   return (
     <ContactCard>

@@ -3,8 +3,7 @@ import { TouchableOpacityProps } from 'react-native'
 
 import { 
   TouchableOpacityButton, 
-  TouchableOpacityButtonText,
-  DeleteImage 
+  TouchableOpacityButtonText
 } from './styles'
 
 interface ButtonProps extends TouchableOpacityProps {
