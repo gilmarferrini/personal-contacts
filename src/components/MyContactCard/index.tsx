@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
 
-import { Button } from '../index'
+import { Button } from '../Button'
 
 import {
   ContactCard,

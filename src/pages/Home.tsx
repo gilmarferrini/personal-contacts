@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FlatList } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { MyContactCard, Button } from '../components'
+import { MyContactCard } from '../components/MyContactCard'
+import { Button } from '../components/Button'
 
 import { 
   Container,
@@ -34,10 +36,29 @@ export function Home() {
       phone
     }
 
-    console.log(contact)
-
     setContacts([...contacts, contact])
   }
+
+  useEffect(() => {
+    async function saveContacts() {
+      await AsyncStorage.setItem('@contacts', JSON.stringify(contacts))
+    }
+  
+    saveContacts()
+  }, [contacts])
+
+  useEffect(() => {
+    async function loadContacts() {
+      const storagedContacts = await AsyncStorage.getItem('@contacts')
+      console.log(storagedContacts)
+      if (storagedContacts) {
+        setContacts(JSON.parse(storagedContacts))
+      }
+
+    }
+
+    loadContacts()
+  }, [])
 
   return (
     <>
