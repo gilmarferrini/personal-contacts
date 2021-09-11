@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, TouchableOpacityProps } from 'react-native'
 
 import { Button } from '../Button'
 
@@ -8,13 +8,14 @@ import {
   ContactCardData,
 } from './styles'
 
-interface ContactCardProps {
+interface ContactCardProps extends TouchableOpacityProps {
+  id: string
   name: string
   email: string
   phone: string
 }
 
-export function MyContactCard({ name, email, phone }: ContactCardProps) {
+export function MyContactCard({ id, name, email, phone, ...rest }: ContactCardProps) {
  
   return (
     <ContactCard>
@@ -34,6 +35,7 @@ export function MyContactCard({ name, email, phone }: ContactCardProps) {
         title="Apagar"
         titleHexColor="#ffffff"
         style={{ backgroundColor: '#FE5F55' }}
+        {...rest}
       />
 
     </ContactCard>

@@ -8,7 +8,7 @@ export const Container = styled.View`
 export const TitleArea = styled.View`
   flex-direction: row;
   justify-content: center;
-  margin: 10px 0;
+  margin: 40px 0;
 `
 
 export const TitleText = styled.Text`

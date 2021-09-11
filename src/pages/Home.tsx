@@ -40,25 +40,31 @@ export function Home() {
   }
 
   useEffect(() => {
+
     async function saveContacts() {
-      await AsyncStorage.setItem('@contacts', JSON.stringify(contacts))
+      await AsyncStorage.setItem('myContacts', JSON.stringify(contacts))
     }
-  
+
     saveContacts()
   }, [contacts])
 
   useEffect(() => {
     async function loadContacts() {
-      const storagedContacts = await AsyncStorage.getItem('@contacts')
-      console.log(storagedContacts)
+      const storagedContacts = await AsyncStorage.getItem('myContacts')
       if (storagedContacts) {
         setContacts(JSON.parse(storagedContacts))
       }
-
+  
     }
 
     loadContacts()
   }, [])
+
+  function deleteContactCard(id: string) {
+    const filteredContactCard = contacts.filter(c => c.id !== id)
+    console.log('chamou')
+    setContacts(filteredContactCard)
+  }
 
   return (
     <>
@@ -110,9 +116,11 @@ export function Home() {
               <Line />
 
               <MyContactCard 
+                id={item.id}
                 name={item.name}
                 email={item.email}
                 phone={item.phone}
+                onPress={() => deleteContactCard(item.id)}
               />
             </>
           )}
