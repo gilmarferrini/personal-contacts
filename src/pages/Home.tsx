@@ -41,12 +41,16 @@ export function Home() {
     }
 
     setContacts([...contacts, contact])
+    setName('')
+    setEmail('')
+    setPhone('')
   }
 
   useEffect(() => {
 
     async function saveContacts() {
       await AsyncStorage.setItem('myContacts', JSON.stringify(contacts))
+      getContacts()
     }
 
     saveContacts()
@@ -67,6 +71,13 @@ export function Home() {
   function deleteContactCard(id: string) {
     const filteredContactCard = contacts.filter(c => c.id !== id)
     setContacts(filteredContactCard)
+  }
+
+  async function getContacts() {
+    const storagedContacts = await AsyncStorage.getItem('myContacts')
+    if (storagedContacts) {
+      console.log(JSON.parse(storagedContacts))
+    }
   }
 
   return (
@@ -110,7 +121,8 @@ export function Home() {
           onPress={handleAddNewContact}
         />
 
-        <FlatList 
+        <FlatList
+          style={{ marginTop: 10 }}
           showsVerticalScrollIndicator={false}
           data={contacts}
           keyExtractor={item => item.id}
