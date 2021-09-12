@@ -36,6 +36,10 @@ export function Home() {
       phone
     }
 
+    if (!name || !email || !phone) {
+      return;
+    }
+
     setContacts([...contacts, contact])
   }
 
@@ -62,7 +66,6 @@ export function Home() {
 
   function deleteContactCard(id: string) {
     const filteredContactCard = contacts.filter(c => c.id !== id)
-    console.log('chamou')
     setContacts(filteredContactCard)
   }
 

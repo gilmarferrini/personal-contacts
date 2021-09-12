@@ -1,17 +1,18 @@
 import styled from 'styled-components/native'
 
 export const ContactCard = styled.View`
-  height: 62px;
+  height: 70px;
   background-color: #6CCFF6;
   border-radius: 10px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: 10px;
 `
 
 export const ContactCardData = styled.View`
-
+  padding: 10px;
+  margin: 10px;
 `
 
 export const TouchableOpacityButton = styled.TouchableOpacity`

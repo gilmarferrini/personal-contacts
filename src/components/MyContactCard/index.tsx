@@ -20,13 +20,13 @@ export function MyContactCard({ id, name, email, phone, ...rest }: ContactCardPr
   return (
     <ContactCard>
       <ContactCardData>
-        <Text>
+        <Text style={{ fontSize: 18 }}>
           {name}
         </Text>
-        <Text>
+        <Text style={{ fontSize: 16 }}>
           {email}
         </Text>
-        <Text>
+        <Text style={{ fontSize: 14 }}>
           {phone}
         </Text>
       </ContactCardData>
