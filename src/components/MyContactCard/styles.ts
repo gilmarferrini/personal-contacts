@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-export const ContactCard = styled.View`
+export const ContactCard = styled.TouchableOpacity`
   height: 70px;
   background-color: #6CCFF6;
   border-radius: 10px;

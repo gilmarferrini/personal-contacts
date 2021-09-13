@@ -18,7 +18,8 @@ interface ContactCardProps extends TouchableOpacityProps {
 export function MyContactCard({ id, name, email, phone, ...rest }: ContactCardProps) {
  
   return (
-    <ContactCard>
+    <ContactCard
+    {...rest}>
       <ContactCardData>
         <Text style={{ fontSize: 18 }}>
           {name}
@@ -30,13 +31,6 @@ export function MyContactCard({ id, name, email, phone, ...rest }: ContactCardPr
           {phone}
         </Text>
       </ContactCardData>
-
-      <Button 
-        title="Apagar"
-        titleHexColor="#ffffff"
-        style={{ backgroundColor: '#FE5F55' }}
-        {...rest}
-      />
 
     </ContactCard>
   )
