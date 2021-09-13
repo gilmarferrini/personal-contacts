@@ -27,6 +27,19 @@ export function Home() {
   const [ email, setEmail ] = useState('')
   const [ phone, setPhone ] = useState('')
 
+  useEffect(() => {
+    async function loadContacts() {
+      const storagedContacts = await AsyncStorage.getItem('myContacts')
+      if (storagedContacts) {
+        setContacts(JSON.parse(storagedContacts))
+      }
+  
+    }
+
+    loadContacts()
+  }, [])
+
+
   function handleAddNewContact() {
     const id = new Date().getTime().toString()
     const contact = {
@@ -56,17 +69,6 @@ export function Home() {
     saveContacts()
   }, [contacts])
 
-  useEffect(() => {
-    async function loadContacts() {
-      const storagedContacts = await AsyncStorage.getItem('myContacts')
-      if (storagedContacts) {
-        setContacts(JSON.parse(storagedContacts))
-      }
-  
-    }
-
-    loadContacts()
-  }, [])
 
   function deleteContactCard(id: string) {
     const filteredContactCard = contacts.filter(c => c.id !== id)

@@ -19,7 +19,8 @@ export function MyContactCard({ id, name, email, phone, ...rest }: ContactCardPr
  
   return (
     <ContactCard
-    {...rest}>
+      {...rest}
+    >
       <ContactCardData>
         <Text style={{ fontSize: 18 }}>
           {name}
